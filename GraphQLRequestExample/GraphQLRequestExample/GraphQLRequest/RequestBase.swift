@@ -61,7 +61,7 @@ class RequestBase: NSObject {
     ///   - progress: 进度回调
     ///   - success: 成功回调
     ///   - failure: 失败回调
-    class func getRequest(url: String, param: Any, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?) {
+    class func getRequest(url: String, param: Any?, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?) {
         
         let task = manager.get(url, parameters: param, progress: progress, success: { (task, responseObj) in
             //成功
@@ -69,18 +69,18 @@ class RequestBase: NSObject {
             RequestBase.cancelRequest(key: tag)
             
             print(("GET请求地址\n" + (task.response?.url?.absoluteString ?? "") + "\n"))
-            print(responseObj)
+            print(responseObj as Any)
             
-            success?(responseObj)
+            success?(responseObj as Any)
             
         }) { (task, error) in
             //失败
             //移除队列
             RequestBase.cancelRequest(key: tag)
-            
             if retry > 0 {
                 self.getRequest(url: url, param: param,tag: tag, retry: (retry - 1), progress: progress, success: success, failure: failure)
             }else{
+                
                 failure?(error)
             }
         }
@@ -109,9 +109,9 @@ class RequestBase: NSObject {
             RequestBase.cancelRequest(key: tag)
             
             print( ("POST请求地址\n" + (task.response?.url?.absoluteString ?? "") + "\n"))
-            print( responseObj)
+            print( responseObj as Any)
 
-            success?(responseObj)
+            success?(responseObj as Any)
             
         }) { (task, error) in
             
@@ -157,7 +157,7 @@ class RequestBase: NSObject {
             //移除队列
             RequestBase.cancelRequest(key: tag)
             
-            success?(responseObj as! String)
+            success?(responseObj as Any)
         }) { (task, error) in
             //失败
             //移除队列
@@ -202,7 +202,7 @@ class RequestBase: NSObject {
             //移除队列
             RequestBase.cancelRequest(key: tag)
 
-            success?(responseObj as! String)
+            success?(responseObj as Any)
         }) { (task, error) in
             //失败
             //移除队列

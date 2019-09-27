@@ -13,25 +13,34 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        //post
-        GraphQLRequest.postRequest(url: "http://192.168.50.85:7001/graphql", param: "createUser(name:\"liuc\", userAvatar:\"http://abc.com/avatar.img\", vip:0)", output: " errorCode status msg", tag: nil, retry: 0, progress: nil, success: { (responseObj) in
-            print(responseObj)
-        }) { (error) in
-            print(error.localizedDescription)
+        
+        let inModel: RequestInModel = RequestInModel()
+        inModel.vip = 0
+        
+        let outModel: RequestOutModel = RequestOutModel()
+//        outModel.v = 0
+        
+        let model = ParamRequestModel()
+        model.in_param = inModel.param
+        model.out_param = outModel.param
+        
+        let mode2 = ParamRequestModel()
+        inModel.vip = 1
+        mode2.in_param = inModel.param
+        mode2.out_param = outModel.param
+        
+        InterfaceServer.request(paramArr: [model,mode2]) { (requestObj, error) in
+            if error == nil {
+                
+            }else{
+                
+            }
         }
         
-        //get 无参数
-        GraphQLRequest.getRequest(url: "http://192.168.50.85:7001/graphql", param: "", output: "test", tag: nil, retry: 0, progress: nil, success: { (responseObj) in
-            print(responseObj)
+        RequestBase.getRequest(url: "https://139.198.13.126:10080", param: nil, tag: nil, retry: 0, progress: nil, success: { (obj) in
+
         }) { (error) in
-            print(error.localizedDescription)
-        }
-        
-        //get 有参数
-        GraphQLRequest.getRequest(url: "http://192.168.50.85:7001/graphql", param: "login(username:\"123123\", pwd:\"123123\")", output: "errorCode status msg", tag: nil, retry: 0, progress: nil, success: { (responseObj) in
-            print(responseObj)
-        }) { (error) in
-            print(error.localizedDescription)
+            
         }
     }
 

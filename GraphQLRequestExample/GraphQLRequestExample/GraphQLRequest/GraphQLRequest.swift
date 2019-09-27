@@ -14,16 +14,15 @@ class GraphQLRequest: NSObject {
     ///
     /// - Parameters:
     ///   - url: 地址（xxx/graphql）
-    ///   - param: 入参 (例如 有参数：login(username:"123123", pwd:"123123") 无参数可以不传 )
-    ///   - output: 出参 (例如 errorCode status msg )
+    ///   - param: 参数
     ///   - tag: 请求标记
     ///   - retry: 重试次数
     ///   - progress: 进度
     ///   - success: 成功
     ///   - failure: 失败
-    class func getRequest(url: String, param: String, output: String, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?){
+    class func getRequest(url: String, param: String, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?){
         
-        RequestBase.getRequest(url: url, param: ["query": GraphQLRequest.handleParam(param: param, output: output)], tag: tag, retry: retry, progress: progress, success: success, failure: failure)
+        RequestBase.getRequest(url: url, param: ["query": "{" + param + "}"], tag: tag, retry: retry, progress: progress, success: success, failure: failure)
     }
     
     
@@ -31,26 +30,16 @@ class GraphQLRequest: NSObject {
     ///
     /// - Parameters:
     ///   - url: 地址（xxx/graphql）
-    ///   - param: 入参 (例如 有参数：login(username:"123123", pwd:"123123") 无参数可以不传 )
-    ///   - output: 出参 (例如 errorCode status msg )
+    ///   - param: 参数
     ///   - tag: 请求标记
     ///   - retry: 重试次数
     ///   - progress: 进度
     ///   - success: 成功
     ///   - failure: 失败
-    class func postRequest(url: String, param: String, output: String, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?){
+    class func postRequest(url: String, param: String, tag: String?, retry: NSInteger, progress: progressBlock?, success: successBlock?, failure: failureBlock?){
         
-        RequestBase.postRequest(url: url, param: ["query": "mutation" + GraphQLRequest.handleParam(param: param, output: output)], tag: tag, retry: retry, progress: progress, success: success, failure: failure)
+        RequestBase.postRequest(url: url, param: ["query": "mutation" + "{" + param + "}"], tag: tag, retry: retry, progress: progress, success: success, failure: failure)
     }
-    
-    //处理参数
-    class func handleParam(param: String, output: String) -> String {
-        
-        if param.count > 0 {
-            //有参数
-           return "{" + param + "{" + output + "}" + "}"
-        }
-        return "{" + output + "}"
-    }
+
 
 }

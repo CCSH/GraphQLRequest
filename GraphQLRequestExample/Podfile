@@ -7,5 +7,6 @@ target 'GraphQLRequestExample' do
 
   # Pods for GraphQLRequestExample
 pod 'AFNetworking'
+pod 'MJExtension'
 
 end

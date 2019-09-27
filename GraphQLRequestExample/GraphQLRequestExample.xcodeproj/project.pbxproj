@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8083DBFA2334596D009CEEE7 /* RequestBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083DBF92334596D009CEEE7 /* RequestBaseModel.swift */; };
+		8083DBFC23347BBD009CEEE7 /* RequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8083DBFB23347BBD009CEEE7 /* RequestModel.swift */; };
+		80B368B3233387F600EBE43F /* InterfaceServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80B368B2233387F600EBE43F /* InterfaceServer.swift */; };
+		80C0054D233CBA7D002B5EDF /* ParamRequestModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C0054C233CBA7D002B5EDF /* ParamRequestModel.swift */; };
 		80D4C1032332140D0099B521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4C1022332140D0099B521 /* AppDelegate.swift */; };
 		80D4C1052332140D0099B521 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80D4C1042332140D0099B521 /* ViewController.swift */; };
 		80D4C1082332140D0099B521 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 80D4C1062332140D0099B521 /* Main.storyboard */; };
@@ -19,6 +23,10 @@
 
 /* Begin PBXFileReference section */
 		78B8B61EF5B787F4D045AA80 /* Pods-GraphQLRequestExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLRequestExample.release.xcconfig"; path = "Target Support Files/Pods-GraphQLRequestExample/Pods-GraphQLRequestExample.release.xcconfig"; sourceTree = "<group>"; };
+		8083DBF92334596D009CEEE7 /* RequestBaseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBaseModel.swift; sourceTree = "<group>"; };
+		8083DBFB23347BBD009CEEE7 /* RequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestModel.swift; sourceTree = "<group>"; };
+		80B368B2233387F600EBE43F /* InterfaceServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceServer.swift; sourceTree = "<group>"; };
+		80C0054C233CBA7D002B5EDF /* ParamRequestModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParamRequestModel.swift; sourceTree = "<group>"; };
 		80D4C0FF2332140D0099B521 /* GraphQLRequestExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GraphQLRequestExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		80D4C1022332140D0099B521 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		80D4C1042332140D0099B521 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +92,7 @@
 			children = (
 				80D4C114233214CB0099B521 /* GraphQLRequest */,
 				80D4C1022332140D0099B521 /* AppDelegate.swift */,
+				8083DBFB23347BBD009CEEE7 /* RequestModel.swift */,
 				80D4C1042332140D0099B521 /* ViewController.swift */,
 				80D4C1062332140D0099B521 /* Main.storyboard */,
 				80D4C1092332140E0099B521 /* Assets.xcassets */,
@@ -96,8 +105,11 @@
 		80D4C114233214CB0099B521 /* GraphQLRequest */ = {
 			isa = PBXGroup;
 			children = (
+				8083DBF92334596D009CEEE7 /* RequestBaseModel.swift */,
 				80D4C115233214D60099B521 /* RequestBase.swift */,
 				80D4C117233215B50099B521 /* GraphQLRequest.swift */,
+				80C0054C233CBA7D002B5EDF /* ParamRequestModel.swift */,
+				80B368B2233387F600EBE43F /* InterfaceServer.swift */,
 			);
 			path = GraphQLRequest;
 			sourceTree = "<group>";
@@ -217,8 +229,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80B368B3233387F600EBE43F /* InterfaceServer.swift in Sources */,
 				80D4C116233214D60099B521 /* RequestBase.swift in Sources */,
+				8083DBFC23347BBD009CEEE7 /* RequestModel.swift in Sources */,
+				8083DBFA2334596D009CEEE7 /* RequestBaseModel.swift in Sources */,
 				80D4C1052332140D0099B521 /* ViewController.swift in Sources */,
+				80C0054D233CBA7D002B5EDF /* ParamRequestModel.swift in Sources */,
 				80D4C1032332140D0099B521 /* AppDelegate.swift in Sources */,
 				80D4C118233215B50099B521 /* GraphQLRequest.swift in Sources */,
 			);
@@ -369,6 +385,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GraphQLRequestExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -387,6 +404,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = GraphQLRequestExample/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
